@@ -14,8 +14,40 @@
     <title>Vanilla Weather App</title>
   </head>
   <body>
-    <h1>Hello, World</h1>
-    <div class="container"></div>
+    <div class="container">
+      <section>
+        <form>
+          <input
+            type="text"
+            placeholder="Enter a city"
+            autofocus="on"
+            autocomplete="off"
+          />
+          <button type="submit">Search</button>
+        </form>
+      </section>
+      <hr />
+      <section>
+        <div class="row">
+          <div class="col">
+            <h1>New York</h1>
+            <ul>
+              <li>Thursday 19:28, few clouds</li>
+              <li>Humidity: 47%, Wind: 7.2km/h</li>
+            </ul>
+          </div>
+          <div class="col">
+            <h2>⛅️ 34°C | °F</h2>
+          </div>
+        </div>
+      </section>
+      <hr />
+      <section>
+        <a href="https://github.com/lauren-jones/vanilla-weather-app"
+          >Open-source code</a
+        >, by Lauren Jones
+      </section>
+    </div>
     <script src="src/app.js"></script>
   </body>
 </html>
