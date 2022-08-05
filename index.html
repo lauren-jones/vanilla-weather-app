@@ -20,6 +20,7 @@
       src="https://kit.fontawesome.com/9f2d6bfdaa.js"
       crossorigin="anonymous"
     ></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/style.css" />
     <title>Vanilla Weather App</title>
   </head>
@@ -40,20 +41,23 @@
       <section class="overview">
         <div class="row">
           <div class="col">
-            <h1>New York</h1>
+            <h1 id="city">New York</h1>
             <ul>
-              <li>Thursday 19:28, few clouds</li>
+              <li>
+                <span id="date">Thursday 19:28</span>,
+                <span id="description">few clouds</span>
+              </li>
               <li class="humidity">
-                Humidity: <span>47%</span>, Wind: <span>7.2km/h</span>
+                Humidity: <span id="humidity">47</span>%, Wind:
+                <span id="wind">7.2</span>km/h
               </li>
             </ul>
           </div>
           <div class="col temp">
             <div class="float-end">
               <h2>
-                <i class="fa-solid fa-sun"></i>34<span class="degrees"
-                  >°C|<a href="#">°F</a></span
-                >
+                <i class="fa-solid fa-sun"></i><span id="temperature">34</span
+                ><span class="degrees">°C|<a href="#">°F</a></span>
               </h2>
             </div>
           </div>

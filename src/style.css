@@ -43,10 +43,6 @@ footer {
   box-shadow: 0 30px 50px rgb(65 50 100 / 8%);
 }
 
-.humidity span {
-  color: #f65281;
-}
-
 .source-code {
   color: #885df1;
   text-decoration: none;
