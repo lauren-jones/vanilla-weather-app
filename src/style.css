@@ -33,6 +33,7 @@ hr {
 footer {
   font-size: 14px;
   text-align: center;
+  margin-top: 40px;
 }
 
 .container {
@@ -93,6 +94,7 @@ footer {
   font-size: 16px;
   margin-top: 20px;
   font-weight: 600;
+  margin-bottom: 40px;
 }
 
 .weather-forecast-date {
