@@ -22,7 +22,7 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
-// Function to update temperature
+// Function to update weather
 function updateWeather(response) {
   console.log(response.data);
 
@@ -35,8 +35,9 @@ function updateWeather(response) {
   descriptionElement.innerHTML = response.data.weather[0].description;
 
   // Update temperature
+  celsiusTemp = response.data.main.temp;
   let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(response.data.main.temp);
+  temperatureElement.innerHTML = Math.round(celsiusTemp);
 
   // Update humidity
   let humidityElement = document.querySelector("#humidity");
@@ -59,6 +60,24 @@ function updateWeather(response) {
   weatherIcon.setAttribute("alt", `${response.data.weather[0].description}`);
 }
 
+// Convert celsius temp to fahrenheit
+function toFahrenheit(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round((celsiusTemp * 9) / 5 + 32);
+  celsiusLinkElement.classList.remove("active");
+  fahrenheitLinkElement.classList.add("active");
+}
+
+// Convert fahrenheit temp to celsius
+function toCelsius(event) {
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#temperature");
+  temperatureElement.innerHTML = Math.round(celsiusTemp);
+  celsiusLinkElement.classList.add("active");
+  fahrenheitLinkElement.classList.remove("active");
+}
+
 // Axios call to Api
 function search(city) {
   let apiKey = "22e2130aeacc47e61254fec6ce6af082";
@@ -76,3 +95,16 @@ function handleSubmit(event) {
 // Get city from user
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSubmit);
+
+// Global variable to store celsius temp
+let celsiusTemp = null;
+
+// Listen for clicks on temperature conversions
+let celsiusLinkElement = document.querySelector("#celsius-link");
+celsiusLinkElement.addEventListener("click", toCelsius);
+
+let fahrenheitLinkElement = document.querySelector("#fahrenheit-link");
+fahrenheitLinkElement.addEventListener("click", toFahrenheit);
+
+// Initial call to Paris to populate weather
+search("Paris");
