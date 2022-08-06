@@ -92,6 +92,34 @@ function handleSubmit(event) {
   search(`${cityInputElement.value}`);
 }
 
+// Display forecast
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
+  days.forEach(function (day) {
+    forecastHTML =
+      forecastHTML +
+      `
+          <div class="col">
+            <div class="weather-forecast-date">${day}</div>
+            <img
+              src="http://openweathermap.org/img/wn/01d@2x.png"
+              alt=""
+              width="60"
+            />
+            <div class="weather-forecast-temps">
+              <span class="weather-forecast-temps-max">22°</span>
+              <span class="weather-forecast-temps-min">18°</span>
+            </div>
+          </div>
+          `;
+  });
+
+  forecastHTML = forecastHTML + `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 // Get city from user
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSubmit);
@@ -108,3 +136,6 @@ fahrenheitLinkElement.addEventListener("click", toFahrenheit);
 
 // Initial call to Paris to populate weather
 search("Paris");
+
+// Call forecast
+displayForecast();
