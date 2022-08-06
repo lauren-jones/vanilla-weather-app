@@ -12,8 +12,12 @@ function formatDate(timestamp) {
 
   let date = new Date(timestamp);
   let day = days[date.getDay()];
+
   let hours = date.getHours();
+  hours = ("0" + hours).slice(-2);
+
   let minutes = date.getMinutes();
+  minutes = ("0" + minutes).slice(-2);
 
   return `${day} ${hours}:${minutes}`;
 }
@@ -45,10 +49,18 @@ function updateWeather(response) {
   // Update date and time
   let dateElement = document.querySelector("#date");
   dateElement.innerHTML = formatDate(response.data.dt * 1000);
+
+  // Update weather icon and alt text
+  let weatherIcon = document.querySelector("#weather-icon");
+  weatherIcon.setAttribute(
+    "src",
+    `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+  );
+  weatherIcon.setAttribute("alt", `${response.data.weather[0].description}`);
 }
 
 // Define api variables
-let city = "Dubai";
+let city = "Paris";
 let apiKey = "22e2130aeacc47e61254fec6ce6af082";
 let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
 
