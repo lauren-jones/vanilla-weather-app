@@ -41,9 +41,8 @@ function updateWeather(response) {
   descriptionElement.innerHTML = response.data.weather[0].description;
 
   // Update temperature
-  celsiusTemp = response.data.main.temp;
   let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(celsiusTemp);
+  temperatureElement.innerHTML = Math.round(response.data.main.temp);
 
   // Update humidity
   let humidityElement = document.querySelector("#humidity");
@@ -67,24 +66,6 @@ function updateWeather(response) {
 
   // Pass coordinates to function that will get forecast
   getForecast(response.data.coord);
-}
-
-// Convert celsius temp to fahrenheit
-function toFahrenheit(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round((celsiusTemp * 9) / 5 + 32);
-  celsiusLinkElement.classList.remove("active");
-  fahrenheitLinkElement.classList.add("active");
-}
-
-// Convert fahrenheit temp to celsius
-function toCelsius(event) {
-  event.preventDefault();
-  let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(celsiusTemp);
-  celsiusLinkElement.classList.add("active");
-  fahrenheitLinkElement.classList.remove("active");
 }
 
 // Axios call to Api
@@ -150,18 +131,5 @@ function displayForecast(response) {
 let searchFormElement = document.querySelector("#search-form");
 searchFormElement.addEventListener("submit", handleSubmit);
 
-// Global variable to store celsius temp
-let celsiusTemp = null;
-
-// Listen for clicks on temperature conversions
-let celsiusLinkElement = document.querySelector("#celsius-link");
-celsiusLinkElement.addEventListener("click", toCelsius);
-
-let fahrenheitLinkElement = document.querySelector("#fahrenheit-link");
-fahrenheitLinkElement.addEventListener("click", toFahrenheit);
-
 // Initial call to Paris to populate weather
 search("Paris");
-
-// Call forecast
-displayForecast();
