@@ -97,3 +97,22 @@ footer {
   padding-bottom: 10px;
   border: none;
 }
+
+.weather-forecast {
+  text-align: center;
+  font-size: 16px;
+  margin-top: 20px;
+  font-weight: 600;
+}
+
+.weather-forecast-date {
+  line-height: 20px;
+}
+
+.weather-forecast-temps-max {
+  color: #f65282;
+}
+
+.weather-forecast-temps-min {
+  color: #fd99b4;
+}
