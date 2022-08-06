@@ -68,3 +68,25 @@ footer {
   color: #885df1;
   text-decoration: none;
 }
+
+.search-form {
+  padding-bottom: 15px;
+}
+
+.search-form .form-control {
+  border: none;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  background: #f9f7fd;
+}
+
+.search-form .form-control::placeholder {
+  color: #a8a6b4;
+}
+
+.search-form .btn {
+  background: #885df1;
+  text-transform: capitalize;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}

@@ -27,14 +27,26 @@
   <body>
     <div class="container">
       <section>
-        <form>
-          <input
-            type="text"
-            placeholder="Enter a city"
-            autofocus="on"
-            autocomplete="off"
-          />
-          <button type="submit">Search</button>
+        <form class="search-form" id="search-form">
+          <div class="row">
+            <div class="col-9">
+              <input
+                type="search"
+                placeholder="Enter a city..."
+                autofocus="on"
+                autocomplete="off"
+                class="form-control"
+                id="city-input"
+              />
+            </div>
+            <div class="col-3">
+              <input
+                type="submit"
+                value="search"
+                class="btn btn-primary w-100"
+              />
+            </div>
+          </div>
         </form>
       </section>
       <hr />

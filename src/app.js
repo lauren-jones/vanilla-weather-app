@@ -59,10 +59,20 @@ function updateWeather(response) {
   weatherIcon.setAttribute("alt", `${response.data.weather[0].description}`);
 }
 
-// Define api variables
-let city = "Paris";
-let apiKey = "22e2130aeacc47e61254fec6ce6af082";
-let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
-
 // Axios call to Api
-axios.get(apiUrl).then(updateWeather);
+function search(city) {
+  let apiKey = "22e2130aeacc47e61254fec6ce6af082";
+  let apiUrl = `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(updateWeather);
+}
+
+// Handle search engine submit
+function handleSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  search(`${cityInputElement.value}`);
+}
+
+// Get city from user
+let searchFormElement = document.querySelector("#search-form");
+searchFormElement.addEventListener("submit", handleSubmit);
