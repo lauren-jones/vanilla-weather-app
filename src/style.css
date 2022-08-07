@@ -1,18 +1,18 @@
 body {
-  background: #f9f7fd;
+  background: #bccade;
   font-family: "Open Sans", sans-serif;
-  color: #a8a6b4;
+  color: #323232;
 }
 
 h1 {
   font-weight: 700;
   font-size: 39px;
-  color: #272142;
+  color: #f2491d;
   text-transform: capitalize;
 }
 
 h2 {
-  color: #272142;
+  color: 323232;
   font-size: 80px;
   line-height: 1;
 }
@@ -46,14 +46,14 @@ footer {
 }
 
 .source-code {
-  color: #885df1;
+  color: #90b8d5;
   text-decoration: none;
   transition: ease-in;
 }
 
 .source-code:hover {
   text-decoration: underline;
-  color: #885df1;
+  color: #90b8d5;
 }
 
 .degrees {
@@ -74,15 +74,15 @@ footer {
   border: none;
   padding-top: 10px;
   padding-bottom: 10px;
-  background: #f9f7fd;
+  background: #bccade;
 }
 
 .search-form .form-control::placeholder {
-  color: #a8a6b4;
+  color: white;
 }
 
 .search-form .btn {
-  background: #885df1;
+  background: #f3bfc8;
   text-transform: capitalize;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -102,9 +102,9 @@ footer {
 }
 
 .weather-forecast-temps-max {
-  color: #f65282;
+  color: #90b8d5;
 }
 
 .weather-forecast-temps-min {
-  color: #fd99b4;
+  color: #bccade;
 }
